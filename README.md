@@ -165,6 +165,8 @@ If it is sucessful you should see a json payload return that looks like this:
 }
 ```
 
+We'll need to create an IAM user and generate AWS CLI credentials.
+
 
 
 
