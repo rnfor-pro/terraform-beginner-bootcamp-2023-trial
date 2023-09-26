@@ -63,6 +63,9 @@ This bash script is located here: [./bin/install_terraform_cli](./bin/install_te
 
 A shebang (pronounced sha-bang) tells the bash script what interpreter program that will interpret the script. eg. `#!/bin bash`
 
+3-refactor-terraform-cli
+https://en.wikipedia.org/wiki/Shebang_(Unix)
+
 ChatGPT recomended we use this format for bash: `#!/usr/bin/env bash`
 
 - For portability for different OS distriutions
@@ -72,8 +75,6 @@ ChatGPT recomended we use this format for bash: `#!/usr/bin/env bash`
 When executing bash scripts we can use the `./` shorthand notataion to execute
 
 eg, `./bin/install_terraform_cli`
-
-https://en.wikipedia.org/wiki/Shebang_(Unix)
 
 
 #### Linux Considerations
@@ -95,13 +96,6 @@ https://en.wikipedia.org/wiki/Chmod
 
 We need to be careful when running the init because it will not re-run if we restart in an existing workspace.
 
+3-refactor-terraform-cli
 https://www.gitpod.io/docs/configure/workspaces/tasks
-
-
-
-https://en.wikipedia.org/wiki/Chmod
-https://en.wikipedia.org/wiki/Shebang_(Unix)
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/
-
 
