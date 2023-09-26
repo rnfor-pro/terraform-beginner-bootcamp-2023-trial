@@ -63,6 +63,7 @@ This bash script is located here: [./bin/install_terraform_cli](./bin/install_te
 
 A shebang (pronounced sha-bang) tells the bash script what interpreter program that will interpret the script. eg. `#!/bin bash`
 
+3-refactor-terraform-cli
 https://en.wikipedia.org/wiki/Shebang_(Unix)
 
 ChatGPT recomended we use this format for bash: `#!/usr/bin/env bash`
@@ -95,4 +96,6 @@ https://en.wikipedia.org/wiki/Chmod
 
 We need to be careful when running the init because it will not re-run if we restart in an existing workspace.
 
+3-refactor-terraform-cli
 https://www.gitpod.io/docs/configure/workspaces/tasks
+
