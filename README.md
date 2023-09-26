@@ -96,6 +96,6 @@ https://en.wikipedia.org/wiki/Chmod
 
 We need to be careful when running the init because it will not re-run if we restart in an existing workspace.
 
-3-refactor-terraform-cli
+
 https://www.gitpod.io/docs/configure/workspaces/tasks
 
