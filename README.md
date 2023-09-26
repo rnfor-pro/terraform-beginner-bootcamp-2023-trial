@@ -1,7 +1,8 @@
-# Terraform Beginner Bootcamp 2023 rnfor
+# Terraform Beginner Bootcamp 2023 
 
 
-## Semantic versioning
+## Semantic versioning :mage:
+
 This project is going to utilize semantic versioning or it's tagging.
 [semver.org]https://semver.org/
 
