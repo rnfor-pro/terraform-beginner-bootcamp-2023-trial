@@ -15,3 +15,93 @@ The general format:
 - ***PATCH*** version when you make backward compatible bug fixes
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
+## Install the Terraform CLI
+
+## Considerations with the Terraform CLI changes
+
+The Terraform CLI installations have changed due to gpg keyring changes. So we needed to refer to the latest install CLI instructions 
+via Terraform Documentation and change the script for install
+
+[Install Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+### Consideration for linux distribution
+
+This project is built against Ubuntu.
+Please consider checking your linux distribution and change according to distribution needs.
+
+[How To Check OS Version in Linux ](https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/)
+
+Example of checking OS Version:
+```
+$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.3 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+```
+
+
+### Refactoring into Bash scripts
+
+While fixing the Terraform CLI gpg depreciation  issue we notice that the bash scripts steps were considerable amount more code. So we decided to create a bash script to install the Terraform CLI.
+
+This bash script is located here: [./bin/install_terraform_cli](./bin/install_terraform_cli)
+
+- This will keep the Gitpod task file ([.gitpod.yml](.gitpod.yml)) tidy.
+- This allow us an easier to debug and execute manually Terraform CLI install 
+- This will allow better portability for projects that need to install Terraform CLI.
+
+#### Shebang considerations
+
+A shebang (pronounced sha-bang) tells the bash script what interpreter program that will interpret the script. eg. `#!/bin bash`
+
+ChatGPT recomended we use this format for bash: `#!/usr/bin/env bash`
+
+- For portability for different OS distriutions
+- Will search the user's PATH for the bash executions
+
+#### Execution Considerations
+When executing bash scripts we can use the `./` shorthand notataion to execute
+
+eg, `./bin/install_terraform_cli`
+
+https://en.wikipedia.org/wiki/Shebang_(Unix)
+
+
+#### Linux Considerations
+
+In order to make our bash scripts executable we need to change linux permissions for the file to be executable at the user mode.
+
+```sh
+chmod u+x ./bin/install_terraform_cli
+```
+
+Alternatively:
+```sh
+chmod 744 ./bin/install_terraform_cli
+```
+https://en.wikipedia.org/wiki/Chmod
+
+
+### Gitpod lifecycle
+
+We need to be careful when running the init because it will not re-run if we restart in an existing workspace.
+
+https://www.gitpod.io/docs/configure/workspaces/tasks
+
+
+
+https://en.wikipedia.org/wiki/Chmod
+https://en.wikipedia.org/wiki/Shebang_(Unix)
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/
+
+
