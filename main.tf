@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+    organization = "etech-dev"
+      workspaces {
+      name = "terra-house"
+    }
+  }
   required_providers {
     random = {
       source  = "hashicorp/random"
@@ -10,6 +16,7 @@ terraform {
     }
   }
 }
+
 
 provider "aws" {
   #configuration option
@@ -35,7 +42,6 @@ resource "aws_s3_bucket" "example" {
   #https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
   bucket = random_string.bucket_name.result
 }
-
 
 
 #https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
