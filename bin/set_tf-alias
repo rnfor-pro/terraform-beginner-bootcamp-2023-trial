@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Check if the alias is already present
+grep -q "alias tf=\"terraform\"" ~/.bash_profile
+
+# $? stores the exit status of the last command executed
+# grep exits with status 0 if the text is found, and with 1 if not
+if [ $? -ne 0 ]; then
+    # Alias not found, so add it
+    echo "alias tf=\"terraform\"" >> ~/.bash_profile
+    echo "Alias added to .bash_profile!"
+    
+    # Load the new alias immediately
+    source ~/.bash_profile
+else
+    # Alias already exists
+    echo "Alias already exists in .bash_profile!"
+fi
