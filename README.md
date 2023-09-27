@@ -201,10 +201,14 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 
 If we want to automatically apply we can provide the auto approve flag eg. `terraform apply -auto-approve`
 
+#### Issues
+Ran into an error while creating an S3 bucket rffred to the documentation and find out that your s3 bucket name must only contain lowercaseses and must not begin nor end with a letter
+[S3 Naming Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
 #### Terraform Destroy
 This will destroy resources .
 You can also use the auto approve plan lag to skip the approve prompt
-eg. `terraform apply --auto-aprove`
+eg. `terraform destroy --auto-aprove`
 
 #### Terraform Lock files
 `.terraform.lock.hcl` contains the locked versions for the providers or modules that should be used wit this project.
