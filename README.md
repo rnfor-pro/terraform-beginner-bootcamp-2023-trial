@@ -179,21 +179,21 @@ TTerraform sources their providers and modules form the Terraform registry which
 
 [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random)
 
-### Terraform console
+#### Terraform console
 
 We can see the list of all terraform commands by typing `terraform`
 
-#### Terraform init
+##### Terraform init
 
 At the start of a new terraform project we will run `terraform init` to initialize the backend, download and install providers plugins we will use in this project.
 
-### Terraform Plan
+#### Terraform Plan
 
 This will generate a change set about our infrastructure and what will be changed.
 
 We can out put this changeset ie. `plan` to be passed to an apply, but often you can just ignore outputing.
 
-### Terraform Apply 
+#### Terraform Apply 
 
 `terraform apply`
 
@@ -201,12 +201,21 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 
 If we want to automatically apply we can provide the auto approve flag eg. `terraform apply -auto-approve`
 
-## Terraform Lock files
+#### Issues
+Ran into an error while creating an S3 bucket rffred to the documentation and find out that your s3 bucket name must only contain lowercaseses and must not begin nor end with a letter
+[S3 Naming Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
+#### Terraform Destroy
+This will destroy resources .
+You can also use the auto approve plan lag to skip the approve prompt
+eg. `terraform destroy --auto-aprove`
+
+#### Terraform Lock files
 `.terraform.lock.hcl` contains the locked versions for the providers or modules that should be used wit this project.
 
 The terraform lock file **should be committed** to your version control system (VCS) eg. GitHub
 
-### Terraform State file
+#### Terraform State file
 
 `.terraform.tfstate` contains information about the current state of your infrastructure. this file **should NOT be committed** to your version control system.
 
@@ -216,7 +225,7 @@ If you lose this file you lose knowing th =e state of your infrastructure
 
 `.terraform.tfstate.backup` id the previous state file.
 
-### Directory
+#### Directory
 `.terraform` dirctory cntains a local cache where Terraform retains some files it will need for subsequent operations against this configuration. 
 
 
