@@ -258,8 +258,9 @@ Provide the following code (replace your token in the file)
   }
 }
 ```
-
 Then open the file
+
+We have automated this workaround with the following bash script [/bin/generate_tfrc/credentials](/bin/generate_tfrc/credentials)
 
 
 
